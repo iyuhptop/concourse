@@ -3,6 +3,7 @@ package atc
 type Resource struct {
 	Name         string `json:"name"`
 	PipelineName string `json:"pipeline_name"`
+	PipelineID   int    `json:"pipeline_id"`
 	TeamName     string `json:"team_name"`
 	Type         string `json:"type"`
 	LastChecked  int64  `json:"last_checked,omitempty"`

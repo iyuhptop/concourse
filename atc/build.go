@@ -19,6 +19,7 @@ type Build struct {
 	JobName      string        `json:"job_name,omitempty"`
 	APIURL       string        `json:"api_url"`
 	PipelineName string        `json:"pipeline_name,omitempty"`
+	PipelineID   int           `json:"pipeline_id,omitempty"`
 	StartTime    int64         `json:"start_time,omitempty"`
 	EndTime      int64         `json:"end_time,omitempty"`
 	ReapTime     int64         `json:"reap_time,omitempty"`

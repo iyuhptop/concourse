@@ -1,7 +1,8 @@
 package atc
 
 type Job struct {
-	ID int `json:"id"`
+	ID         int `json:"id"`
+	PipelineID int `json:"pipeline_id"`
 
 	Name                 string `json:"name"`
 	PipelineName         string `json:"pipeline_name"`

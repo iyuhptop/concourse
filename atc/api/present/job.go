@@ -50,7 +50,8 @@ func Job(
 	}
 
 	return atc.Job{
-		ID: job.ID(),
+		ID:         job.ID(),
+		PipelineID: job.PipelineID(),
 
 		Name:                 job.Name(),
 		PipelineName:         job.PipelineName(),

@@ -6,6 +6,7 @@ type Dashboard []DashboardJob
 
 type DashboardJob struct {
 	ID           int
+	PipelineID   int
 	Name         string
 	PipelineName string
 	TeamName     string

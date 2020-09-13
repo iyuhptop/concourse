@@ -23,6 +23,7 @@ func Resource(resource db.Resource, showCheckError bool, teamName string) atc.Re
 	atcResource := atc.Resource{
 		Name:         resource.Name(),
 		PipelineName: resource.PipelineName(),
+		PipelineID:   resource.PipelineID(),
 		TeamName:     teamName,
 		Type:         resource.Type(),
 		Icon:         resource.Icon(),

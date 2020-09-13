@@ -20,6 +20,7 @@ func Build(build db.Build) atc.Build {
 
 	atcBuild := atc.Build{
 		ID:           build.ID(),
+		PipelineID:   build.PipelineID(),
 		Name:         build.Name(),
 		JobName:      build.JobName(),
 		PipelineName: build.PipelineName(),
