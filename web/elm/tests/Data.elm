@@ -36,6 +36,7 @@ module Data exposing
     , withHovered
     , withIcon
     , withId
+    , withInstanceVars
     , withJob
     , withJobName
     , withLastChecked
@@ -204,6 +205,7 @@ pipeline : String -> Int -> Concourse.Pipeline
 pipeline team id =
     { id = id
     , name = "pipeline-" ++ String.fromInt id
+    , instanceVars = Dict.empty
     , paused = False
     , archived = False
     , public = True
@@ -216,6 +218,7 @@ dashboardPipeline : Int -> Bool -> Dashboard.Group.Models.Pipeline
 dashboardPipeline id public =
     { id = id
     , name = pipelineName
+    , instanceVars = Dict.empty
     , teamName = teamName
     , public = public
     , isToggleLoading = False
@@ -250,6 +253,11 @@ withName name p =
 withGroups : List Concourse.PipelineGroup -> { r | groups : List Concourse.PipelineGroup } -> { r | groups : List Concourse.PipelineGroup }
 withGroups groups p =
     { p | groups = groups }
+
+
+withInstanceVars : Dict String Concourse.JsonValue -> { r | instanceVars : Dict String Concourse.JsonValue } -> { r | instanceVars : Dict String Concourse.JsonValue }
+withInstanceVars instanceVars p =
+    { p | instanceVars = instanceVars }
 
 
 job : Int -> Concourse.Job
