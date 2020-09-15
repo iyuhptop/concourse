@@ -30,6 +30,7 @@ module Colors exposing
     , inputOutline
     , paginationHover
     , paused
+    , pausedFaded
     , pausedTopbarSeparator
     , pending
     , pendingFaded
@@ -137,6 +138,11 @@ successFaded =
 paused : String
 paused =
     "#3498db"
+
+
+pausedFaded : String
+pausedFaded =
+    "#2776ab"
 
 
 pending : String
@@ -314,26 +320,47 @@ retryTabText =
     "#f5f5f5"
 
 
-statusColor : PipelineStatus -> String
-statusColor status =
-    case status of
-        PipelineStatusPaused ->
-            paused
+statusColor : Bool -> PipelineStatus -> String
+statusColor isBright status =
+    if isBright then
+        case status of
+            PipelineStatusPaused ->
+                paused
 
-        PipelineStatusSucceeded _ ->
-            success
+            PipelineStatusSucceeded _ ->
+                success
 
-        PipelineStatusPending _ ->
-            pending
+            PipelineStatusPending _ ->
+                pending
 
-        PipelineStatusFailed _ ->
-            failure
+            PipelineStatusFailed _ ->
+                failure
 
-        PipelineStatusErrored _ ->
-            error
+            PipelineStatusErrored _ ->
+                error
 
-        PipelineStatusAborted _ ->
-            aborted
+            PipelineStatusAborted _ ->
+                aborted
+
+    else
+        case status of
+            PipelineStatusPaused ->
+                pausedFaded
+
+            PipelineStatusSucceeded _ ->
+                successFaded
+
+            PipelineStatusPending _ ->
+                pendingFaded
+
+            PipelineStatusFailed _ ->
+                failureFaded
+
+            PipelineStatusErrored _ ->
+                errorFaded
+
+            PipelineStatusAborted _ ->
+                abortedFaded
 
 
 buildStatusColor : Bool -> BuildStatus -> String
